@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="bg">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Телефон на жертвата — Игра</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- LOCK SCREEN -->
+  <div id="lock-screen" class="screen active">
+    <div class="lock-inner">
+      <h2>Заключен телефон</h2>
+      <p>Въведи PIN</p>
+      <input id="pin-input" type="password" maxlength="6" inputmode="numeric" pattern="[0-9]*" placeholder="••••" />
+      <div class="hint">По подразбиране PIN: <strong id="default-pin">1987</strong></div>
+      <button id="unlock-btn">Отключи</button>
+      <div id="lock-msg" class="msg"></div>
+    </div>
+  </div>
+
+  <!-- HOME SCREEN -->
+  <div id="home-screen" class="screen">
+    <div class="phone-frame">
+      <header class="status-bar">
+        <div>09:41</div>
+        <div>🔋 78%</div>
+      </header>
+      <main class="home-grid">
+        <div class="app-icon" data-app="bank">
+          <div class="icon bank-emoji">🏦</div>
+          <div class="label">Банка</div>
+        </div>
+
+        <div class="app-icon" data-app="messages">
+          <div class="icon msg-emoji">💬</div>
+          <div class="label">Съобщения</div>
+        </div>
+
+        <div class="app-icon" data-app="email">
+          <div class="icon mail-emoji">✉️</div>
+          <div class="label">Имейл</div>
+        </div>
+
+        <div class="app-icon disabled">
+          <div class="icon">📷</div>
+          <div class="label">Камера</div>
+        </div>
+
+        <div class="app-icon disabled">
+          <div class="icon">🖼️</div>
+          <div class="label">Снимки</div>
+        </div>
+
+        <div class="app-icon disabled">
+          <div class="icon">🧭</div>
+          <div class="label">Навигация</div>
+        </div>
+
+        <div class="app-icon disabled">
+          <div class="icon">🌐</div>
+          <div class="label">Браузър</div>
+        </div>
+      </main>
+      <footer class="dock">Телефон на Жертвата</footer>
+    </div>
+  </div>
+
+  <!-- BANK APP -->
+  <div id="bank-screen" class="app-screen">
+    <header><button class="back">← Назад</button> <h3>Банка</h3></header>
+    <section class="bank-body">
+      <div class="balance-row">
+        <div>Текущ баланс</div>
+        <div class="balance">13,255.89</div>
+      </div>
+      <div class="transactions">
+        <h4>Последни транзакции</h4>
+        <ul id="tx-list">
+          <!-- Injected by JS -->
+        </ul>
+      </div>
+    </section>
+  </div>
+
+  <!-- MESSAGES -->
+  <div id="messages-screen" class="app-screen">
+    <header><button class="back">← Назад</button> <h3>Съобщения</h3></header>
+    <section class="messages-body">
+      <ul id="chat-list" class="chat-list">
+        <!-- Injected by JS -->
+      </ul>
+    </section>
+  </div>
+
+  <!-- CHAT VIEW (показва снимка на чата) -->
+  <div id="chat-screen" class="app-screen">
+    <header><button id="chat-back" class="back">← Назад</button> <h3 id="chat-title">Чат</h3></header>
+    <section class="chat-body">
+      <div class="chat-image-wrap">
+        <img id="chat-image" src="" alt="Chat image placeholder" />
+      </div>
+      <div class="uploader">
+        <label>Качете снимка за този чат:
+          <input id="chat-upload" type="file" accept="image/*" />
+        </label>
+        <div class="hint">Изображението ще се съхрани локално в браузъра.</div>
+      </div>
+    </section>
+  </div>
+
+  <!-- EMAILS -->
+  <div id="email-pass-screen" class="app-screen">
+    <header><button class="back">← Назад</button> <h3>Имейл</h3></header>
+    <section class="email-pass-body">
+      <p>За достъп до имейла въведете 6-цифрен код.</p>
+      <input id="email-pin" type="password" maxlength="6" pattern="[0-9]*" inputmode="numeric" placeholder="••••••" />
+      <button id="email-unlock">Открий поща</button>
+      <div class="hint">Парола: <strong>281125</strong></div>
+      <div id="email-msg" class="msg"></div>
+    </section>
+  </div>
+
+  <div id="email-screen" class="app-screen">
+    <header><button class="back">← Назад</button> <h3>Имейл</h3></header>
+    <section class="email-body">
+      <ul id="email-list" class="email-list">
+        <!-- Injected by JS -->
+      </ul>
+    </section>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
