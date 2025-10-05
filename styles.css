@@ -1,0 +1,57 @@
+:root{
+  --bg:#0f1720; --panel:#0b1220; --card:#0f1a2b; --accent:#09f;
+  --text:#e6eef8;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+*{box-sizing:border-box}
+body{
+  margin:0; min-height:100vh; display:flex; align-items:center; justify-content:center;
+  background:linear-gradient(180deg,#051025 0%, #071525 100%);
+  color:var(--text);
+  padding:20px;
+}
+
+/* Generic screens */
+.screen{display:none; width:360px; max-width:95vw}
+.screen.active{display:block}
+
+.lock-inner{
+  background:rgba(255,255,255,0.02); padding:28px; border-radius:12px; text-align:center;
+  box-shadow:0 8px 30px rgba(0,0,0,0.6);
+}
+.lock-inner input{
+  display:block; margin:14px auto; padding:10px 12px; font-size:20px; width:180px; text-align:center;
+  border-radius:8px; border:1px solid rgba(255,255,255,0.08); background:rgba(255,255,255,0.02); color:var(--text);
+}
+button{background:var(--accent); color:#012; border:none; padding:8px 12px; border-radius:8px; cursor:pointer}
+button.back{background:transparent; color:var(--text); padding:6px 8px; margin-right:8px}
+.msg{margin-top:8px; color:#ffbbbb}
+
+/* Phone frame layout */
+.phone-frame{background:linear-gradient(180deg,#081426, #091a30); border-radius:20px; overflow:hidden; box-shadow:0 20px 60px rgba(4,10,20,0.6)}
+.status-bar{display:flex; justify-content:space-between; padding:10px 16px; font-weight:600; color:#bcd6ff}
+.home-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:12px; padding:18px}
+.app-icon{background:rgba(255,255,255,0.02); border-radius:12px; padding:12px; text-align:center; cursor:pointer}
+.app-icon .icon{font-size:28px; margin-bottom:8px}
+.app-icon .label{font-size:13px; color:#d7e9ff}
+.app-icon.disabled{opacity:0.55; filter:grayscale(40%); cursor:default}
+
+/* app screens */
+.app-screen{display:none; width:360px; background:linear-gradient(180deg,#071426,#08172a); border-radius:12px; color:var(--text); margin-top:12px; padding-bottom:18px; box-shadow:0 10px 40px rgba(0,0,0,0.6)}
+.app-screen.active{display:block}
+.app-screen header{display:flex; align-items:center; padding:12px 14px; border-bottom:1px solid rgba(255,255,255,0.03)}
+.app-screen h3{margin:0; flex:1; text-align:center}
+.bank-body, .messages-body, .email-body, .chat-body, .email-pass-body{padding:14px}
+.balance-row{display:flex; justify-content:space-between; align-items:center; background:rgba(255,255,255,0.02); padding:12px; border-radius:8px}
+.balance{font-weight:700; font-size:20px}
+.transactions ul, .chat-list, .email-list{list-style:none; padding:0; margin:12px 0}
+.transactions li, .chat-list li, .email-list li{background:rgba(255,255,255,0.02); padding:10px; border-radius:8px; margin-bottom:8px}
+.chat-list li{display:flex; align-items:center; gap:10px}
+.chat-list img, .chat-image-wrap img{width:56px; height:56px; object-fit:cover; border-radius:8px; background:#222}
+.chat-image-wrap{display:flex; justify-content:center; margin-bottom:12px}
+.chat-image-wrap img{max-width:100%; height:auto; border-radius:8px}
+.uploader input{display:block; margin-top:8px}
+.hint{font-size:12px; color:#9fb5d9; margin-top:8px}
+.email-list li{display:flex; flex-direction:column}
+.email-list li .subject{font-weight:600}
+.email-list li .meta{font-size:12px; color:#9fb5d9}
